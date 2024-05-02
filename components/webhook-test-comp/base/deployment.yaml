@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: webhook-test-comp
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: webhook-test-comp
+    app.kubernetes.io/part-of: webhook-test
+  name: webhook-test-comp
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: webhook-test-comp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: webhook-test-comp
+    spec:
+      containers:
+      - image: image
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
